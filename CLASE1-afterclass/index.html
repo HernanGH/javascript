@@ -1,0 +1,37 @@
+<!--
+  Crea un script en JS que le solicite al usuario ingresar uno o más datos. // Edad y año de nacimiento
+  Luego, con JavaScript, realiza operaciones matemáticas o de concatenación sobre // Operacion: suma
+  las entradas teniendo en cuenta el tipo de dato.
+  Al finalizar mostrar el resultados con alert() o console.log() // Mostrar el año
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CLASE 1 - after class</title>
+</head>
+<body>
+  
+</body>
+<script>
+  console.log('Inicia mi algorito');
+  var edad = prompt('Ingrese edad'); // VARIABLE TIPO TEXTO // String // ENTRADA
+  // var variablenueva = parseInt(edad);
+  console.log(edad);
+  
+  var año = prompt('Ingrese año de nacimiento'); // VARIABLE TIPO TEXTO // String // ENTRADA
+  // var añonumber = parseInt(año);
+  console.log(año);
+
+  // var añoactual = variablenueva + añonumber;
+  var añoactual = parseInt(edad) + parseInt(año); // OPERACION SUMA DE NUMBERs // PROCESO // SALIDA
+  console.log(añoactual);
+
+  var mensaje = 'El año actual es: ' + añoactual; // OPERACION CONCATENACION O SUMA DE STRING y NUMBER
+  console.log(mensaje);
+  console.log(typeof mensaje);
+  alert(mensaje);
+</script>
+</html>

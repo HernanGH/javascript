@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mi primer App</title>
+  </head>
+  <body>
+    <h2>Coder House</h2>
+    <button id="btnPrincipal">CLICK</button>
+    <script>
+      let boton = document.getElementById("btnPrincipal");
+      const evento = 'click';
+      boton.addEventListener(evento, respuestaClick);
+      
+      function respuestaClick() {
+        console.log("Respuesta evento");
+      }
+    </script>
+  </body>
+</html>

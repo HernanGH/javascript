@@ -1,0 +1,15 @@
+//CODIGO HTML DE REFERENCIA
+ <form id="formulario">
+  <input type="text">
+  <input type="number">
+  <input type="submit" value="Enviar">
+</form>
+<script>
+  let miFormulario = document.getElementById("formulario");
+  miFormulario.addEventListener("submit", validarFormulario);
+  
+  function validarFormulario(e){
+      e.preventDefault();
+      console.log("Formulario Enviado");    
+  }
+</script>

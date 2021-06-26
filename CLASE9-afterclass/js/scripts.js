@@ -4,7 +4,7 @@
 // 1- Mostrar en pantalla los datos de todos los alumnos
 // 2- Agregar un boton Presente por cada alumno
 // 3- Este boton Presente debe cambiar un booleano en el alumno determinado
-// 4- Agregar un solo boton Guardar por debajo de la seccion de datos de los alumnos que guardara en el localStorage los alumnos presentes
+// 4- Agregar un solo boton Guardar por debajo de la seccion de datos de los alumnos que guarde en el localStorage los alumnos presentes
 // 5- Mostrar el listado de alumnos presentes desde el localStorage al final del sitio
 
 
@@ -14,35 +14,40 @@ const alummnos = [
     nombre: "Juancho",
     apellido: "Perez",
     edad: 20,
-    presente: false
+    presente: false,
+    guardado: false
   },
   {
     id: 1,
     nombre: "Julietita",
     apellido: "Diiiazz",
     edad: 22,
-    presente: false
+    presente: false,
+    guardado: false
   },
   {
     id: 2,
     nombre: "Roberto",
     apellido: "Sanchez",
     edad: 24,
-    presente: false
+    presente: false,
+    guardado: false
   },
   {
     id: 3,
     nombre: "Diegito",
     apellido: "Gonzalez",
     edad: 28,
-    presente: false
+    presente: false,
+    guardado: false
   },
   {
     id: 4,
     nombre: "Pedrito",
     apellido: "Perezzz",
     edad: 18,
-    presente: false
+    presente: false,
+    guardado: false
   }
 ];
 
@@ -86,18 +91,25 @@ const btnGuardar = document.getElementById('btnGuardar');
 btnGuardar.addEventListener('click', () => {
   // ambas condiciones son iguales
   // const alumnoPresente = alummnos.filter((alumnoItem) => alumnoItem.presente === true);
-  const alumnosPresente = alummnos.filter((alumnoItem) => alumnoItem.presente);
+  const alumnosPresentes = alummnos.filter((alumnoItem) => alumnoItem.presente && !alumnoItem.guardado); // alumnoItem.presente === false
 
-  console.log(alumnosPresente);
-  // PENDIENTE PISAR ALUMNOS YA PRESENTES
-  localStorage.setItem('alumnosPresentes', JSON.stringify(alumnosPresente));
+  for (const alumno of alummnos) {
+    // Some devuelve true si el alumno esta en la lista de alumnosPresentes
+    const siEstaPresente = alumnosPresentes.some((alumnoPresente) => alumnoPresente.id === alumno.id);
+    if (siEstaPresente) {
+      alumno.guardado = true;
+      localStorage.setItem(alumno.id, JSON.stringify(alumno));
+    }
+  }
+
+  console.log(alumnosPresentes);
 
   const containerPresentes = document.getElementById('containerPresentes');
-
-  for (const alumno of alumnosPresente) {
+  
+  for (const alumno of alumnosPresentes) {
     const element = document.createElement('div');
     element.innerHTML = `
-    <div class="card" style="width: 10rem; text-align: center; margin: auto; background-color: grey">
+    <div class="card" style="width: 10rem; text-align: center; margin: auto; background-color: green">
       <div class="card-body">
         <h3 class="card-title">${alumno.nombre} ${alumno.apellido}</h3>
       </div>

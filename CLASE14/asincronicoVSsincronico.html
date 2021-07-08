@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASYNC vs SYNC</title>
+</head>
+<body>
+  <input
+    type="button"
+    value="ASINCRONICO 1"
+    onclick="asincronica()"
+  />
+  <input
+    type="button"
+    value="SINCRONICO 1"
+    onclick="sincronica()"
+  />
+</body>
+<script>
+  function sincronica() {
+    /// SINCRONICO
+    for (let i=0;i<10;i++) {
+      // codigo que se ejecuta instaneamente sin esperar
+      console.log(i);
+    }
+  }
+
+  function asincronica() {
+    /// ASINCRONICO
+    setTimeout(function() {
+      // codigo que se ejecuta despues, espera 5 segundos
+      console.log("hola desde javascript");
+    }, 5000);
+  }
+</script>

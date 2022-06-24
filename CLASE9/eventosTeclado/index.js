@@ -2,9 +2,11 @@
 const input1  = document.getElementById("nombre");
 const input2  = document.getElementById("edad");
 
+
+// option 2
 input1.onkeyup = () => {
-  console.log("keyUp", input1.value);
+  console.log("keyUp en el 1er input", input1.value);
 };
 input2.onkeydown = () => {
-  console.log("keyDown", input2.value);
+  console.log("keyDown en el 2do input", input2.value);
 };
